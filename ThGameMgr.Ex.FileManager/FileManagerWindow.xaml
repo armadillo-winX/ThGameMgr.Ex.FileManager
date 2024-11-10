@@ -1,0 +1,22 @@
+﻿<Window x:Class="ThGameMgr.Ex.FileManager.FileManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThGameMgr.Ex.FileManager"
+        mc:Ignorable="d"
+        Title="ファイルの管理" Height="287" Width="433" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
+    <Grid>
+        <Menu Height="18" VerticalAlignment="Top">
+            <MenuItem Header="ファイル(_F)">
+                <MenuItem x:Name="CloseMenuItem" Header="閉じる(_C)" Click="CloseMenuItemClick"/>
+            </MenuItem>
+            <MenuItem Header="ヘルプ(_H)">
+                <MenuItem x:Name="AboutMenuItem" Header="バージョン情報" Click="AboutMenuItemClick"/>
+            </MenuItem>
+        </Menu>
+        <ListBox x:Name="FilesListBox" Margin="0,41,0,0" FontSize="14"/>
+        <TextBox x:Name="GameDirectoryPathBox" IsReadOnly="True" Margin="0,18,0,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
