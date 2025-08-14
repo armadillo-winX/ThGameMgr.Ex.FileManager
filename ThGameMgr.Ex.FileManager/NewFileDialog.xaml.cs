@@ -10,6 +10,8 @@ namespace ThGameMgr.Ex.FileManager
         public NewFileDialog()
         {
             InitializeComponent();
+
+            _ = NewFileNameBox.Focus();
         }
 
         public string? NewFileName { get; set; }
