@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThGameMgr.Ex.FileManager"
         mc:Ignorable="d"
-        Title="ファイルの管理" Height="287" Width="433" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
+        Title="ファイルの管理" Height="359" Width="529" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
     <Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="ファイル(_F)">
