@@ -130,5 +130,36 @@ namespace ThGameMgr.Ex.FileManager
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void AddNewFileMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            NewFileDialog newFileDialog = new()
+            {
+                Owner = this
+            };
+
+            if (newFileDialog.ShowDialog() == true)
+            {
+                string? newFileName = newFileDialog.NewFileName;
+                if (!string.IsNullOrEmpty(newFileName))
+                {
+                    string? targetDirectory = Path.GetDirectoryName(this.GameFilePath);
+                    if (targetDirectory != null)
+                    {
+                        string newFilePath = Path.Combine(targetDirectory, newFileName);
+                        try
+                        {
+                            using (File.Create(newFilePath)) { }
+                            GetFiles(this.GameFilePath);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(this, $"ファイルの作成に失敗しました: {ex.Message}", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
