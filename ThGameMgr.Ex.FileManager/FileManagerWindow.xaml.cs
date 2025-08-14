@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
@@ -90,6 +91,36 @@ namespace ThGameMgr.Ex.FileManager
             string message = $"{pluginName}\nver{pluginVersion}\nby {pluginDeveloper}";
             MessageBox.Show(this, message, "バージョン情報",
                 MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void AddExistedFileMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new()
+            {
+                Title = "ファイルを追加",
+                Filter = "すべてのファイル|*.*",
+                Multiselect = true
+            };
+
+            string targetDirectory = Path.GetDirectoryName(this.GameFilePath);
+
+            if (Directory.Exists(targetDirectory))
+            {
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    foreach (string file in openFileDialog.FileNames)
+                    {
+                        File.Copy(file, Path.Combine(targetDirectory, Path.GetFileName(file)), true);
+                    }
+                }
+
+                GetFiles(this.GameFilePath);
+            }
+            else
+            {
+                MessageBox.Show(this, "ゲームディレクトリが見つかりません。", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

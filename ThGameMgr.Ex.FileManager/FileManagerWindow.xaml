@@ -9,6 +9,8 @@
     <Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="ファイル(_F)">
+                <MenuItem x:Name="AddExistedFileMenuItem" Header="既存のファイルを追加(_A)" Click="AddExistedFileMenuItemClick"/>
+                <Separator/>
                 <MenuItem x:Name="CloseMenuItem" Header="閉じる(_C)" Click="CloseMenuItemClick"/>
             </MenuItem>
             <MenuItem Header="ヘルプ(_H)">
