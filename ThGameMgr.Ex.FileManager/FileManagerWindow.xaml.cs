@@ -16,6 +16,8 @@ namespace ThGameMgr.Ex.FileManager
             InitializeComponent();
         }
 
+        private string? _gameFilePath;
+
         private readonly static Dictionary<string, string> _gameNameDictionary = new()
         {
             { "Th06", "東方紅魔郷" },
@@ -44,9 +46,15 @@ namespace ThGameMgr.Ex.FileManager
 
         public string GameFilePath
         {
+            get
+            {
+                return _gameFilePath ?? string.Empty;
+            }
+
             set
             {
                 GetFiles(value);
+                _gameFilePath = value;
             }
         }
 
@@ -102,7 +110,7 @@ namespace ThGameMgr.Ex.FileManager
                 Multiselect = true
             };
 
-            string targetDirectory = Path.GetDirectoryName(this.GameFilePath);
+            string? targetDirectory = Path.GetDirectoryName(this.GameFilePath);
 
             if (Directory.Exists(targetDirectory))
             {
